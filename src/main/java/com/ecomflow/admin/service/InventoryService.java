@@ -13,3 +13,4 @@ public interface InventoryService {
     InventoryResponse adjustStock(StockAdjustmentRequest request);
     List<Subsidiary> getAllSubsidiaries();
 }
+

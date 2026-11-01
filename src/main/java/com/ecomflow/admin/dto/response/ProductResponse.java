@@ -27,3 +27,4 @@ public class ProductResponse {
     private String productDescription;
     private String productPhotosLink;
 }
+

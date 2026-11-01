@@ -47,3 +47,4 @@ public class CartItem {
     @Column(name = "ingestion_time", length = 50)
     private String ingestionTime;
 }
+

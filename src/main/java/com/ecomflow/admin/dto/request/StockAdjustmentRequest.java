@@ -27,3 +27,4 @@ public class StockAdjustmentRequest {
     @Min(value = 1, message = "Số lượng thay đổi phải lớn hơn 0")
     private Integer changeQuantity;
 }
+

@@ -37,3 +37,4 @@ public class ProductCreateRequest {
     private String productVersion;
     private String productPhotosLink;
 }
+

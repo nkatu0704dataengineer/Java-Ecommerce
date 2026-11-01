@@ -18,3 +18,4 @@ public class AssignProductPromotionRequest {
     @NotBlank(message = "Mã sản phẩm không được để trống")
     private String productId;
 }
+

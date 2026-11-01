@@ -23,3 +23,4 @@ public class Category extends BaseAuditEntity {
     @Column(name = "cate_name", length = 100, nullable = false)
     private String cateName;
 }
+

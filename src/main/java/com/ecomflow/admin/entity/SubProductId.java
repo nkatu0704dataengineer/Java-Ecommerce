@@ -37,3 +37,4 @@ public class SubProductId implements Serializable {
         return Objects.hash(subsidiaryId, productId);
     }
 }
+

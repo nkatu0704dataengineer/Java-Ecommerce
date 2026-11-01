@@ -73,3 +73,4 @@ public class Review extends BaseAuditEntity {
     @Column(name = "review_sentiment", length = 30)
     private String reviewSentiment;
 }
+

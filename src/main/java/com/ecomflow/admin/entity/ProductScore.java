@@ -33,3 +33,4 @@ public class ProductScore {
     @Column(name = "avg_rating", precision = 5, scale = 2, nullable = false)
     private BigDecimal avgRating;
 }
+

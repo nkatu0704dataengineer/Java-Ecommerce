@@ -78,3 +78,4 @@ public class Product extends BaseAuditEntity {
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ProductScore score;
 }
+

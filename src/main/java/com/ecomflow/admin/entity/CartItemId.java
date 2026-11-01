@@ -37,3 +37,4 @@ public class CartItemId implements Serializable {
         return Objects.hash(cartId, itemSequence);
     }
 }
+

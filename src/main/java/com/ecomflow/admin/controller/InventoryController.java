@@ -47,3 +47,4 @@ public class InventoryController {
         return ResponseEntity.ok(ApiResponse.ok("Lấy danh sách 51 chi nhánh thành công", inventoryService.getAllSubsidiaries()));
     }
 }
+

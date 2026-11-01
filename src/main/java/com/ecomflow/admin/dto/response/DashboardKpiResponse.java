@@ -20,3 +20,4 @@ public class DashboardKpiResponse {
     private Map<String, Long> sentimentDistribution;
     private Map<String, Long> paymentMethodDistribution;
 }
+

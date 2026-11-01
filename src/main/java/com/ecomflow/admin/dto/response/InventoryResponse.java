@@ -19,3 +19,4 @@ public class InventoryResponse {
     private String stockStatus; // IN_STOCK, LOW_STOCK, OUT_OF_STOCK
     private String updatedAt;
 }
+

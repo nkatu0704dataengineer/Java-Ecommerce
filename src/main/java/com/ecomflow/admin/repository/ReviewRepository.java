@@ -34,3 +34,4 @@ public interface ReviewRepository extends JpaRepository<Review, String> {
     @Query("SELECT r.reviewSentiment, COUNT(r) FROM Review r WHERE r.reviewSentiment IS NOT NULL GROUP BY r.reviewSentiment")
     List<Object[]> countBySentiment();
 }
+

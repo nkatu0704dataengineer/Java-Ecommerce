@@ -38,3 +38,4 @@ public class ProgramSale extends BaseAuditEntity {
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
 }
+

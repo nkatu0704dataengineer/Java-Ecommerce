@@ -22,3 +22,4 @@ public class CustomerResponse {
     private Integer accountAgeDays;
     private String createdAt;
 }
+

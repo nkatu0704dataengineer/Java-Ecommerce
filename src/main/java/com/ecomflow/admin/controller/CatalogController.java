@@ -65,3 +65,4 @@ public class CatalogController {
         return ResponseEntity.ok(ApiResponse.ok("Lấy danh sách thương hiệu thành công", catalogService.getAllBrands()));
     }
 }
+

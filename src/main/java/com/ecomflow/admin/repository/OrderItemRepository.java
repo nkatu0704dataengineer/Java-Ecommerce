@@ -19,3 +19,4 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, OrderItemI
            "WHERE oi.id.orderId = :orderId")
     List<OrderItem> findByOrderIdWithDetails(@Param("orderId") String orderId);
 }
+

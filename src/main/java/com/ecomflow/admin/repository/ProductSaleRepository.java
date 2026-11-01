@@ -14,3 +14,4 @@ public interface ProductSaleRepository extends JpaRepository<ProductSale, Produc
 
     List<ProductSale> findByIdProductId(String productId);
 }
+

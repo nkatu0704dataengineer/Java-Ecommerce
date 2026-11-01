@@ -34,3 +34,4 @@ public class SubProduct extends BaseAuditEntity {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 }
+

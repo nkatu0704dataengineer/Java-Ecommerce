@@ -36,3 +36,4 @@ public interface SubProductRepository extends JpaRepository<SubProduct, SubProdu
            "WHERE sp.quantity < 5")
     List<SubProduct> findTopLowStock(Pageable pageable);
 }
+

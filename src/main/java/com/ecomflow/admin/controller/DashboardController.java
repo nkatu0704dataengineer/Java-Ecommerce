@@ -25,3 +25,4 @@ public class DashboardController {
         return ResponseEntity.ok(ApiResponse.ok("Lấy chỉ số KPI Dashboard thành công", kpis));
     }
 }
+

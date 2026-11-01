@@ -20,3 +20,4 @@ public class CartItemResponse {
     private BigDecimal itemTotalAmount;
     private String addedAt;
 }
+

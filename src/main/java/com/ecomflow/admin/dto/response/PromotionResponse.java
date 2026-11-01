@@ -22,3 +22,4 @@ public class PromotionResponse {
     private String status; // ACTIVE, SCHEDULED, EXPIRED
     private Integer assignedProductsCount;
 }
+

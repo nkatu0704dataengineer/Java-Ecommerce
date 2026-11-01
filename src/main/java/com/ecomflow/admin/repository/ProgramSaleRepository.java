@@ -12,3 +12,4 @@ public interface ProgramSaleRepository extends JpaRepository<ProgramSale, String
 
     List<ProgramSale> findByStartDateLessThanEqualAndEndDateGreaterThanEqual(LocalDate now1, LocalDate now2);
 }
+

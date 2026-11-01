@@ -84,3 +84,4 @@ public class PromotionServiceImpl implements PromotionService {
         productSaleRepository.save(ps);
     }
 }
+

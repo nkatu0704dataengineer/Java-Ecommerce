@@ -66,3 +66,4 @@ public class Customer extends BaseAuditEntity {
         return lastName + " " + firstName;
     }
 }
+

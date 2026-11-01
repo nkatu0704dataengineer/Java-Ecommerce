@@ -26,3 +26,4 @@ public class Brand extends BaseAuditEntity {
     @Column(name = "brand_country", length = 50)
     private String brandCountry;
 }
+

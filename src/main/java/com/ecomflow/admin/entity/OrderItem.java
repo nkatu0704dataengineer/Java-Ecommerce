@@ -62,3 +62,4 @@ public class OrderItem extends BaseAuditEntity {
     @Column(name = "shipping_fee", precision = 18, scale = 2, nullable = false)
     private BigDecimal shippingFee;
 }
+

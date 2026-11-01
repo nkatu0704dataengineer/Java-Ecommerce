@@ -55,3 +55,4 @@ public class Subsidiary extends BaseAuditEntity {
         return sb.toString();
     }
 }
+

@@ -49,3 +49,4 @@ public abstract class BaseAuditEntity {
         this.updatedAt = LocalDateTime.now().format(FORMATTER);
     }
 }
+

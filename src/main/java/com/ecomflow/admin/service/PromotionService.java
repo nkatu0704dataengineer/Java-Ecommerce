@@ -9,3 +9,4 @@ public interface PromotionService {
     Page<PromotionResponse> getPromotions(Pageable pageable);
     void assignProductToPromotion(AssignProductPromotionRequest request);
 }
+

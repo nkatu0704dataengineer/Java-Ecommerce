@@ -25,3 +25,4 @@ public class OrderItemResponse {
     private BigDecimal totalPrice;
     private BigDecimal shippingFee;
 }
+

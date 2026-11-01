@@ -17,3 +17,4 @@ public interface PaymentRepository extends JpaRepository<Payment, String> {
     @Query("SELECT p.paymentMethod, COUNT(p) FROM Payment p GROUP BY p.paymentMethod")
     List<Object[]> countByPaymentMethod();
 }
+

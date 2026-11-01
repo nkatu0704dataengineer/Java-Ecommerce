@@ -14,3 +14,4 @@ public interface CartRepository extends JpaRepository<Cart, String> {
     @Query("SELECT c FROM Cart c LEFT JOIN FETCH c.items i LEFT JOIN FETCH i.product WHERE c.customer.accId = :accId")
     Optional<Cart> findByCustomerAccId(@Param("accId") String accId);
 }
+

@@ -49,3 +49,4 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error("Lỗi hệ thống nội bộ: " + ex.getMessage()));
     }
 }
+

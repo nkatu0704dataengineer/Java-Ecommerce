@@ -15,3 +15,4 @@ public class ReviewReplyRequest {
     @NotBlank(message = "Nội dung phản hồi CSKH không được để trống")
     private String replyMessage;
 }
+

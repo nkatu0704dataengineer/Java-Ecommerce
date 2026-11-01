@@ -41,3 +41,4 @@ public class Payment extends BaseAuditEntity {
     @Column(name = "refund_at", length = 50)
     private String refundAt;
 }
+

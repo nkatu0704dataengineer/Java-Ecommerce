@@ -17,3 +17,4 @@ public interface CatalogService {
     List<Category> getAllCategories();
     List<Brand> getAllBrands();
 }
+

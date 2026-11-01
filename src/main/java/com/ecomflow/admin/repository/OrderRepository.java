@@ -38,3 +38,4 @@ public interface OrderRepository extends JpaRepository<Order, String> {
            "WHERE o.orderId = :orderId")
     Optional<Order> findOrderDetailById(@Param("orderId") String orderId);
 }
+

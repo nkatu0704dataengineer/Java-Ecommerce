@@ -34,3 +34,4 @@ public class ProductSale {
     @Column(name = "updated_at", length = 50)
     private String updatedAt;
 }
+

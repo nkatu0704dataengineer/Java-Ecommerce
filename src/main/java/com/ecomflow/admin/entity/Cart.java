@@ -41,3 +41,4 @@ public class Cart extends BaseAuditEntity {
     @Builder.Default
     private List<CartItem> items = new ArrayList<>();
 }
+
