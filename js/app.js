@@ -1141,3 +1141,4 @@ document.addEventListener("DOMContentLoaded", () => {
   populateStaticOptions();
   navigateTo("dashboard");
 });
+
