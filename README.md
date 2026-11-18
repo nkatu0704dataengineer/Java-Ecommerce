@@ -1,7 +1,8 @@
 # EcomFlow Admin 🚀
 
 > **Hệ Thống Quản Trị Chuỗi Bán Lẻ & Thương Mại Điện Tử Đa Kênh**  
-> *Dự án đang trong quá trình xây dựng và phát triển (Work in Progress).*
+> *Dự án đang trong quá trình xây dựng và phát triển (Work in Progress).*  
+> 📖 **Tài liệu Kỹ thuật Toàn diện:** Xem bách khoa toàn thư kiến trúc, CSDL 16 bảng và danh mục API tại [PRODUCT.md](PRODUCT.md).
 
 ---
 
@@ -90,6 +91,8 @@ Bạn có thể chạy Frontend bằng một trong 2 cách sau:
 Java-Ecommerce/
 ├── pom.xml                                  # Cấu hình Maven & dependencies Spring Boot
 ├── mvnw.cmd                                 # Maven Wrapper cho Windows
+├── README.md                                # Hướng dẫn cài đặt & khởi chạy nhanh
+├── PRODUCT.md                               # Bách khoa toàn thư kỹ thuật (Kiến trúc, 16 bảng CSDL, API)
 ├── index.html                               # Trang giao diện quản trị Admin Dashboard
 ├── css/style.css                            # Hệ thống màu sắc Red & White và CSS tùy chỉnh
 ├── js/
@@ -113,3 +116,4 @@ Java-Ecommerce/
 
 ## 📌 Trạng thái dự án
 Dự án đang trong quá trình hoàn thiện các tính năng nâng cao, tinh chỉnh trải nghiệm người dùng (UX) và tối ưu hóa hiệu năng truy vấn. Mọi đóng góp và phản hồi đều được hoan nghênh!
+
