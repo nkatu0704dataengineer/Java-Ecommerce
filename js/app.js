@@ -895,15 +895,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const openOrderDetail = (orderId) => {
-    const order = AppState.data.orders.find(o => (o.order_id || o.orderId) === orderId) || AppState.data.orders[0];
+  const openOrderDetail = async (orderId) => {
+    let order = null;
+    if (AppState.isLiveApi) {
+      try {
+        const res = await fetch(`${AppState.apiBaseUrl}/orders/${orderId}`);
+        const json = await res.json();
+        if (json.success && json.data) {
+          order = json.data;
+        }
+      } catch (e) {
+        console.warn("Could not fetch live order detail:", e);
+      }
+    }
+    if (!order) {
+      order = AppState.data.orders.find(o => (o.order_id || o.orderId) === orderId) || AppState.data.orders[0];
+    }
     if (!order) return;
 
-    document.getElementById("offcanvasOrderId").textContent = orderId;
-    document.getElementById("offcanvasOrderDate").textContent = order.created_at || order.orderDate || "2026-11-01";
-    document.getElementById("offcanvasCustomer").textContent = `${order.customer_name || order.customerName || 'Khách hàng'} (${order.acc_id || order.accId || ''})`;
-    document.getElementById("offcanvasAddress").textContent = `${order.target_street || 'Số 123'}, ${order.target_city || 'TP. Hồ Chí Minh'}`;
-    document.getElementById("offcanvasEmployee").textContent = `${order.employee_id || 'NV Vận hành'} (Phụ trách)`;
+    document.getElementById("offcanvasOrderId").textContent = order.orderId || order.order_id || orderId;
+    document.getElementById("offcanvasOrderDate").textContent = order.created_at || order.createdAt || order.orderDate || "2026-11-01";
+    document.getElementById("offcanvasCustomer").textContent = `${order.customerName || order.customer_name || 'Khách hàng'} (${order.customerId || order.accId || order.acc_id || ''})`;
+    document.getElementById("offcanvasAddress").textContent = `${order.targetAddress || order.target_street || 'Số 123'}, ${order.targetCity || order.target_city || 'TP. Hồ Chí Minh'}`;
+    document.getElementById("offcanvasEmployee").textContent = `${order.employeeName || order.employeeId || order.employee_id || 'NV Vận hành'} (Phụ trách)`;
 
     const itemsTbody = document.getElementById("offcanvasOrderItemsBody");
     if (itemsTbody) {
@@ -914,26 +928,27 @@ document.addEventListener("DOMContentLoaded", () => {
         <tr>
           <td>${idx + 1}</td>
           <td>
-            <div class="fw-bold">${item.product_name}</div>
-            <small class="text-muted">Kho: ${item.subsidiary_name || 'Trung tâm'}</small>
+            <div class="fw-bold">${item.productName || item.product_name}</div>
+            <small class="text-muted">Kho: ${item.subsidiaryName || item.subsidiary_name || 'Trung tâm'}</small>
           </td>
           <td class="text-center">${item.quantity}</td>
-          <td class="text-end">${formatCurrency(item.list_price)}</td>
-          <td class="text-end text-success">${item.discount_rate > 0 ? `-${item.discount_rate * 100}%` : '-'}</td>
-          <td class="text-end fw-bold">${formatCurrency(item.total_price)}</td>
+          <td class="text-end">${formatCurrency(item.listPrice || item.list_price)}</td>
+          <td class="text-end text-success">${(item.discountRate || item.discount_rate) > 0 ? `-${(item.discountRate || item.discount_rate) * 100}%` : '-'}</td>
+          <td class="text-end fw-bold">${formatCurrency(item.totalPrice || item.total_price)}</td>
         </tr>
       `).join("");
     }
 
     const total = order.totalAmount || order.total_amount || 65540500;
     document.getElementById("offcanvasSubtotal").textContent = formatCurrency(total);
-    document.getElementById("offcanvasShipFee").textContent = formatCurrency(0);
-    document.getElementById("offcanvasFinalTotal").textContent = formatCurrency(total);
+    document.getElementById("offcanvasShipFee").textContent = formatCurrency(order.totalShipFee || order.total_shipfee || 0);
+    document.getElementById("offcanvasFinalTotal").textContent = formatCurrency((Number(total) + Number(order.totalShipFee || order.total_shipfee || 0)));
 
-    document.getElementById("offcanvasPaymentId").textContent = order.payment?.payment_id || "PAY_" + orderId;
-    document.getElementById("offcanvasPaymentMethod").textContent = order.payment?.payment_method || order.paymentMethod || "VNPAY QR";
-    document.getElementById("offcanvasPaymentStatus").innerHTML = `<span class="badge bg-success">SUCCESS</span>`;
-    document.getElementById("offcanvasPaidAt").textContent = order.payment?.paid_at || "Đã thanh toán";
+    document.getElementById("offcanvasPaymentId").textContent = order.payment?.paymentId || order.payment?.payment_id || "PAY_" + orderId;
+    document.getElementById("offcanvasPaymentMethod").textContent = order.payment?.paymentMethod || order.payment?.payment_method || order.paymentMethod || "VNPAY QR";
+    const pStatus = order.payment?.paymentStatus || order.payment?.payment_status || 'SUCCESS';
+    document.getElementById("offcanvasPaymentStatus").innerHTML = `<span class="badge bg-${pStatus === 'SUCCESS' ? 'success' : 'warning'}">${pStatus}</span>`;
+    document.getElementById("offcanvasPaidAt").textContent = order.payment?.paidAt || order.payment?.paid_at || "Đã thanh toán";
 
     const offcanvasElem = document.getElementById("orderDetailOffcanvas");
     if (offcanvasElem) {
@@ -941,6 +956,10 @@ document.addEventListener("DOMContentLoaded", () => {
       bsOffcanvas.show();
     }
   };
+
+  // Expose for Playwright System E2E testing
+  window.openOrderDetail = openOrderDetail;
+  window.navigateTo = navigateTo;
 
   ["orderStatusFilter", "orderPaymentFilter", "orderSearchInput"].forEach(id => {
     document.getElementById(id)?.addEventListener("input", renderOrdersTable);

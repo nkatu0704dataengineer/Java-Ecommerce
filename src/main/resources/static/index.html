@@ -131,6 +131,12 @@
       </div>
 
       <div class="topbar-right">
+        <!-- Live Database Connection Status Pill -->
+        <div id="dbConnectionPill" class="d-none d-sm-flex align-items-center gap-2 px-3 py-1 rounded-pill border bg-white shadow-sm" style="cursor: pointer; font-size: 0.78rem;" title="Nhấn để kiểm tra lại kết nối Backend Spring Boot & CSDL">
+          <span class="spinner-grow spinner-grow-sm text-warning" id="dbStatusDot" style="width: 8px; height: 8px;"></span>
+          <span id="dbStatusLabel" class="fw-semibold text-secondary">Checking DB...</span>
+        </div>
+
         <!-- Branch Selector Switcher -->
         <div class="branch-selector-pill">
           <i class="bi bi-geo-alt-fill"></i>
@@ -158,6 +164,17 @@
 
     <!-- Content Viewport -->
     <main class="content-body">
+      <!-- Live DB Connection Guidance Banner -->
+      <div id="liveDbAlertBanner" class="alert alert-warning alert-dismissible fade show mb-4 border-0 shadow-sm d-none" role="alert">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-info-circle-fill fs-4 text-warning me-3"></i>
+          <div>
+            <strong>Đang ở chế độ xem trước (Mock Data):</strong> Bạn đang mở file bằng Live Server. Trình duyệt không thể tự nối trực tiếp vào SQL Server mà cần thông qua Backend Java Spring Boot (cổng <code>8080</code>).
+            <div class="small text-muted mt-1">Để nạp dữ liệu thực tế 66.679 dòng từ <code>ecomflow_db</code>, vui lòng mở terminal chạy lệnh: <code class="bg-dark text-white px-2 py-0.5 rounded">.\mvnw.cmd spring-boot:run</code> rồi bấm <a href="javascript:void(0)" id="retryDbConnectionLink" class="alert-link fw-bold">Thử kết nối lại</a>.</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
 
       <!-- ==================================================================
            VIEW 1: EXECUTIVE DASHBOARD

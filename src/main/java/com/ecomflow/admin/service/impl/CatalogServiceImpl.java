@@ -68,17 +68,16 @@ public class CatalogServiceImpl implements CatalogService {
                 .productPhotosLink(request.getProductPhotosLink())
                 .build();
 
-        Product savedProduct = productRepository.save(product);
-
         // Khởi tạo điểm đánh giá ban đầu 1:1
         ProductScore score = ProductScore.builder()
-                .productId(savedProduct.getProductId())
-                .product(savedProduct)
+                .productId(product.getProductId())
+                .product(product)
                 .reviewCount(0)
                 .avgRating(BigDecimal.valueOf(5.0))
                 .build();
-        productScoreRepository.save(score);
-        savedProduct.setScore(score);
+
+        product.setScore(score);
+        Product savedProduct = productRepository.save(product);
 
         return mapToResponse(savedProduct);
     }

@@ -1,10 +1,11 @@
 package com.ecomflow.admin.entity;
 
-import com.ecomflow.admin.common.BaseAuditEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Entity ánh xạ bảng dbo.reviews (5.459 đánh giá khách hàng có tích hợp cờ phân tích sắc thái NLP)
@@ -16,7 +17,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Review extends BaseAuditEntity {
+public class Review {
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Id
     @Column(name = "review_id", length = 32, nullable = false)
@@ -42,8 +45,14 @@ public class Review extends BaseAuditEntity {
     @Column(name = "review_message", columnDefinition = "NVARCHAR(MAX)")
     private String reviewMessage;
 
+    @Column(name = "created_at", length = 50)
+    private String createdAt;
+
     @Column(name = "replied_at", length = 50)
     private String repliedAt;
+
+    @Column(name = "ingestion_time", length = 50)
+    private String ingestionTime;
 
     // 8 Cờ Boolean phân tích sắc thái & trạng thái đánh giá
     @Column(name = "has_reply", nullable = false)
@@ -72,5 +81,16 @@ public class Review extends BaseAuditEntity {
 
     @Column(name = "review_sentiment", length = 30)
     private String reviewSentiment;
+
+    @PrePersist
+    public void onPrePersist() {
+        String nowStr = LocalDateTime.now().format(FORMATTER);
+        if (this.createdAt == null) {
+            this.createdAt = nowStr;
+        }
+        if (this.ingestionTime == null) {
+            this.ingestionTime = nowStr;
+        }
+    }
 }
 
