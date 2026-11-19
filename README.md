@@ -1,19 +1,31 @@
-# EcomFlow Admin - Enterprise Omnichannel Retail Management & Automated Testing Framework 🚀
+# EcomFlow.vn Enterprise Omnichannel Retail & System Test Automation Framework 🚀
 
 <p align="left">
   <img src="https://img.shields.io/badge/Java-17%20%7C%2021-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java Version" />
-  <img src="https://img.shields.io/badge/Spring%20Boot-3.3.4-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot" />
   <img src="https://img.shields.io/badge/Playwright-1.48.0-2EAD33?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
   <img src="https://img.shields.io/badge/JUnit-5.10.3-25A162?style=flat-square&logo=junit5&logoColor=white" alt="JUnit 5" />
-  <img src="https://img.shields.io/badge/SQL%20Server-2025%20(ecomflow__db)-CC292B?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL Server 2025" />
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.3.4-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot" />
+  <img src="https://img.shields.io/badge/SQL%20Server-2025-CC292B?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL Server 2025" />
   <img src="https://img.shields.io/badge/Maven-3.8+-C71A36?style=flat-square&logo=apachemaven&logoColor=white" alt="Maven" />
-  <img src="https://img.shields.io/badge/Architecture-3--Tier%20Layered%20(OOP)-7952B3?style=flat-square" alt="Architecture" />
+  <img src="https://img.shields.io/badge/Design%20Pattern-3--Tier%20Layered%20(OOP)-7952B3?style=flat-square" alt="Design Pattern" />
+  <br/>
+  <img src="https://img.shields.io/badge/Modules%20Covered-7%20Modules%20%7C%209%2F9%20TCs%20Passed-10b981?style=flat-square" alt="Modules Covered" />
   <img src="https://img.shields.io/badge/Data%20Scale-16%20Tables%20%7C%2066.679%20Rows-0ea5e9?style=flat-square" alt="Data Scale" />
-  <img src="https://img.shields.io/badge/Test%20Suite-9%2F9%20Passed%20(100%25%20Idempotent)-10b981?style=flat-square" alt="Test Suite" />
+  <img src="https://img.shields.io/badge/Test%20Suite-100%25%20Idempotent%20Automated-22c55e?style=flat-square" alt="Test Suite" />
   <img src="https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square" alt="License" />
 </p>
 
-Hệ thống quản trị chuỗi bán lẻ đa kênh kết hợp thương mại điện tử quy mô lớn (**Enterprise-Grade Omnichannel Retail ERP & System Automation Framework**), được xây dựng trên ngăn xếp công nghệ hiện đại **Java 21 LTS**, **Spring Boot 3.3.4**, **Spring Data JPA / Hibernate**, cơ sở dữ liệu **Microsoft SQL Server 2025 (`ecomflow_db`)** chuẩn hóa 16 bảng với gần **67.000 bản ghi thực tế**, đi kèm bộ kiểm thử tự động toàn diện mức độ hệ thống bằng **Playwright for Java** kết hợp **JUnit 5**.
+Hệ thống quản trị chuỗi bán lẻ đa kênh kết hợp thương mại điện tử quy mô lớn và khung kiểm thử tự động toàn diện mức độ doanh nghiệp (**Enterprise-Grade Omnichannel Retail ERP & System Automation Framework**) được phát triển cho nền tảng bán lẻ **EcomFlow** dựa trên ngăn xếp công nghệ hiện đại **Java 17/21 LTS**, **Spring Boot 3.3.4**, **Microsoft Playwright for Java**, **JUnit 5**, cơ sở dữ liệu **Microsoft SQL Server 2025 (`ecomflow_db`)** chuẩn hóa 16 bảng với gần **67.000 bản ghi thực tế** và mô hình thiết kế chuẩn mực **3-Tier Layered Architecture (OOP)**.
+
+Dự án bao gồm toàn bộ **7 Phân hệ cốt lõi** cùng bộ kiểm thử tự động cấp độ hệ thống (System & E2E Testing) đạt tỷ lệ vượt qua tuyệt đối **9/9 Test Cases (100% Idempotent)**:
+
+1. **Module 1: Executive Dashboard & Phân tích BI** ( `DashboardController` , `DashboardService` , `Chart.js` ).
+2. **Module 2: Hàng hóa & Danh mục Sản phẩm** ( `CatalogController` , `CatalogService` , `Product` , `Category` , `Brand` ).
+3. **Module 3: Tồn kho Đa Chi nhánh (Omnichannel Inventory)** ( `InventoryController` , `InventoryService` , `SubProduct` ).
+4. **Module 4: Đơn hàng & Đối soát Giao dịch Tài chính** ( `OrderController` , `OrderService` , `Order` , `OrderItem` , `Payment` ).
+5. **Module 5: Chiến dịch Khuyến mãi & Chiết khấu** ( `PromotionController` , `PromotionService` , `ProgramSale` , `ProductSale` ).
+6. **Module 6: Khách hàng & Giỏ hàng Tồn đọng** ( `CustomerController` , `CustomerService` , `Customer` , `Cart` , `CartItem` ).
+7. **Module 7: Phản hồi Đánh giá CSKH & Nhân sự Chi nhánh** ( `ReviewAndStaffController` , `ReviewAndStaffService` , `Review` , `Employee` ).
 
 > 📖 **Bách khoa toàn thư Kỹ thuật:** Xem tài liệu đặc tả kiến trúc chi tiết, từ điển 16 bảng CSDL và danh mục RESTful API tại [PRODUCT.md](PRODUCT.md).
 
